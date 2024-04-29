@@ -62,24 +62,37 @@
   <body>
     <form id="form">
       <h3>Registration Form</h3>
+
+      <ul>
+        Enter your Name
+      </ul>
       <dev class="form-control">
         <input type="text" id="name" />
         <i class="lni lni-checkmark-circle"></i>
         <i class="lni lni-question-circle"></i>
         <small></small> </dev
-      ><br /><br />
+      ><br />
+      <ul>
+        Enter your email
+      </ul>
       <dev class="form-control">
         <input type="text" id="email" />
         <i class="lni lni-checkmark-circle"></i>
         <i class="lni lni-question-circle"></i>
         <small></small> </dev
-      ><br /><br />
+      ><br />
+      <ul>
+        Enter your password
+      </ul>
       <dev class="form-control">
         <input type="text" id="password" />
         <i class="lni lni-checkmark-circle"></i>
         <i class="lni lni-question-circle"></i>
         <small></small> </dev
-      ><br /><br />
+      ><br />
+      <ul>
+        Confirm Your Password
+      </ul>
       <dev class="form-control">
         <input type="text" id="confirmPassword" />
         <i class="lni lni-checkmark-circle"></i>
@@ -170,12 +183,6 @@
         return true;
       }
     }
-    // if (emailValue.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)) {
-    //     return true;
-    //   } else {
-    //     isThisValid.push(false);
-    //     return false;
-    //   }
 
     function setErrorFor(input, message) {
       const formControl = input.parentElement;
