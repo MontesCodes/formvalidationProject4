@@ -31,6 +31,10 @@
       position: absolute;
       top: 0px;
       right: 20px;
+      visibility: hidden;
+    }
+    .form-control small {
+      visibility: hidden;
     }
     body {
       background-color: #919191;
@@ -42,9 +46,21 @@
       border: none;
       cursor: pointer;
     }
+    .form-control.success i.lni-checkmark-circle {
+      visibility: visible;
+      color: #2ecc71;
+    }
+    .form-control.error i.lni-question-circle {
+      visibility: visible;
+      color: #e74c3c;
+    }
+    .form-control.error small {
+      visibility: visible;
+      color: #e74c3c;
+    }
   </style>
   <body>
-    <form action="">
+    <form id="form">
       <h3>Registration Form</h3>
       <dev class="form-control">
         <input type="text" id="name" />
@@ -65,12 +81,12 @@
         <small></small> </dev
       ><br /><br />
       <dev class="form-control">
-        <input type="text" id="confpassword" />
+        <input type="text" id="confirmPassword" />
         <i class="lni lni-checkmark-circle"></i>
         <i class="lni lni-question-circle"></i>
         <small></small> </dev
       ><br /><br />
-      <dev class="form-control">
+      <!-- <dev class="form-control">
         <input type="text" id="name" />
         <i class="lni lni-checkmark-circle"></i>
         <i class="lni lni-question-circle"></i>
@@ -81,9 +97,46 @@
         <i class="lni lni-checkmark-circle"></i>
         <i class="lni lni-question-circle"></i>
         <small></small> </dev
-      ><br />
+      ><br /> -->
       <input type="submit" id="btn" />
     </form>
   </body>
-  <script></script>
+  <script>
+    const form = document.getElementById('form');
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirmPassword');
+    // Prevent browser default behaviour
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      checkInputValidations();
+    });
+    function checkInputValidations() {
+      const nameValue = name.value.trim();
+      const emailValue = email.value.trim();
+      const passwordValue = password.value.trim();
+      const confirmPasswordValue = confirmPassword.value.trim();
+      if (nameValue === '') {
+        setErrorFor(name, 'Name field cannot be blank');
+      } else {
+        setSuccessFor(name);
+      }
+      if (emailValue === '') {
+        setErrorFor(email, 'Email field cannot be blank');
+      } else if (!isEmailValid(emailValue)) {
+        setErrorFor(email, 'Received Email is not valid');
+      }
+    }
+    function setErrorFor(input, message) {
+      const formControl = input.parentElement;
+      const small = formControl.querySelector('small');
+      small.innerText = message;
+      formControl.className = 'form-control error';
+    }
+    function setSuccessFor(input) {
+      const formControl = input.parentElement;
+      formControl.className = 'form-control success';
+    }
+  </script>
 </html>
