@@ -113,9 +113,9 @@
       e.preventDefault();
       let validationResults = checkInputValidations();
       if (validationResults) {
-        swal('Form Submitted Successfully');
+        swal('Form Submitted!', ' Successfully', 'success');
       } else {
-        swal('Form Submission Failed');
+        swal('Form Submission!', 'Was a Failure', 'error');
       }
     });
     function checkInputValidations() {
