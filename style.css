@@ -1,0 +1,50 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+form {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 60px;
+  width: 600px;
+  background-color: #fff;
+}
+.form-control input {
+  padding: 10px;
+  width: 100%;
+}
+.form-control {
+  position: relative;
+}
+.form-control i {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  visibility: hidden;
+}
+.form-control small {
+  visibility: hidden;
+}
+body {
+  background-color: #919191;
+}
+#btn {
+  padding: 10px 20px;
+  background-color: #16a085;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.form-control.success i.lni-checkmark-circle {
+  visibility: visible;
+  color: #2ecc71;
+}
+.form-control.error i.lni-question-circle {
+  visibility: visible;
+  color: #e74c3c;
+}
+.form-control.error small {
+  visibility: visible;
+  color: #e74c3c;
+}
